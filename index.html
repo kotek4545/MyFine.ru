@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MyFine Portal</title>
+    <link rel="stylesheet" href="st.css">
+</head>
+<body>
+    <div class="sidebar">
+        <button class="nav-btn active" onclick="show('home', this)">Главная</button>
+        <button class="nav-btn" onclick="show('support', this)">Поддержка</button>
+        <button class="nav-btn" onclick="show('profile', this)">Профиль</button>
+        <button class="nav-btn" id="admin-btn" style="display:none;" onclick="show('admin', this)">Админка</button>
+    </div>
+    <div class="main-content">
+        <div id="home" class="block active"><h1>Добро пожаловать в MyFine</h1></div>
+        <div id="support" class="block">
+            <div id="chat-box" class="card" style="height: 300px; overflow-y: scroll;"></div>
+            <textarea id="new-msg" placeholder="Ваше сообщение..."></textarea>
+            <button onclick="send()">Отправить</button>
+        </div>
+        <div id="profile" class="block">
+            <div class="card" id="auth-box">
+                <h2>Вход</h2>
+                <input id="log" placeholder="Логин">
+                <input id="pas" type="password" placeholder="Пароль">
+                <button onclick="login()">Войти</button>
+            </div>
+            <div class="card" id="user-box" style="display:none;">
+                <h2 id="user-text"></h2>
+                <button onclick="logout()">Выйти</button>
+            </div>
+        </div>
+        <div id="admin" class="block">
+            <div style="display:flex; gap:20px;">
+                <div id="player-list" style="width:200px;"></div>
+                <div class="card" style="flex:1">
+                    <div id="admin-chat-view" style="height:250px; overflow-y:scroll;">Выберите игрока</div>
+                    <textarea id="admin-reply" placeholder="Ответ..."></textarea>
+                    <button onclick="sendReply()">Ответить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="register.js"></script>
+</body>
+</html>
